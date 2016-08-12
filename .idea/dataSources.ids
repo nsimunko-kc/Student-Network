@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - Stud_Net_DB@localhost" uuid="62c1e199-4c17-4f3a-91e4-393804ec8c6f">
+    <database-info product="MySQL" version="5.5.5-10.1.13-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="stud_net_db"/>
+    <table name="comments" schema="" catalog="stud_net_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="post_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="comment_timestamp" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="comments_ibfk_1" columns="user_id" ref-table="users" ref-schema="" ref-catalog="stud_net_db" ref-columns="id" update-rule="0" delete-rule="2" deferrability="2"/>
+      <foreign-key name="comments_ibfk_2" columns="post_id" ref-table="posts" ref-schema="" ref-catalog="stud_net_db" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="followers" schema="" catalog="stud_net_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="follower" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="following" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="followers_ibfk_1" columns="follower" ref-table="users" ref-schema="" ref-catalog="stud_net_db" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="followers_ibfk_2" columns="following" ref-table="users" ref-schema="" ref-catalog="stud_net_db" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="likes" schema="" catalog="stud_net_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="post_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="likes_ibfk_1" columns="user_id" ref-table="users" ref-schema="" ref-catalog="stud_net_db" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="likes_ibfk_2" columns="post_id" ref-table="posts" ref-schema="" ref-catalog="stud_net_db" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="posts" schema="" catalog="stud_net_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="num_of_likes" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="post_timestamp" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="image_path" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="content" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="posts_ibfk_1" columns="user_id" ref-table="users" ref-schema="" ref-catalog="stud_net_db" ref-columns="id" update-rule="0" delete-rule="2" deferrability="2"/>
+      <exported-key name="comments_ibfk_2" table="comments" schema="" catalog="stud_net_db" columns="post_id"/>
+      <exported-key name="likes_ibfk_2" table="likes" schema="" catalog="stud_net_db" columns="post_id"/>
+    </table>
+    <table name="users" schema="" catalog="stud_net_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="salt" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="profile_img_path" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="joined" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="last_login" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="bio" sqlType="VARCHAR" precision="150" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="comments_ibfk_1" table="comments" schema="" catalog="stud_net_db" columns="user_id"/>
+      <exported-key name="followers_ibfk_1" table="followers" schema="" catalog="stud_net_db" columns="follower"/>
+      <exported-key name="followers_ibfk_2" table="followers" schema="" catalog="stud_net_db" columns="following"/>
+      <exported-key name="likes_ibfk_1" table="likes" schema="" catalog="stud_net_db" columns="user_id"/>
+      <exported-key name="posts_ibfk_1" table="posts" schema="" catalog="stud_net_db" columns="user_id"/>
+    </table>
+  </data-source>
+</component>

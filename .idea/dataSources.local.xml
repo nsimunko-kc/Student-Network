@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - Stud_Net_DB@localhost" uuid="62c1e199-4c17-4f3a-91e4-393804ec8c6f">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>stud_net_db.*</schema-pattern>
+      <default-schemas>stud_net_db.*</default-schemas>
+    </data-source>
+  </component>
+</project>

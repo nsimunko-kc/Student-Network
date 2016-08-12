@@ -1,0 +1,63 @@
+section {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    padding-top: 4em;
+    padding-bottom: 1.5em;
+}
+
+section form {
+    background-color: white;
+    box-shadow: 0 2px 2px rgba(0,0,0, 0.2);
+}
+
+table#register-form {
+    width: 100%;
+    padding: 1em;
+}
+
+table#register-form th {
+    padding-bottom: 1em;
+}
+
+table#register-form td:first-child {
+    text-align: right;
+    padding-right: 1em;
+}
+
+table#register-form label {
+    font-size: 11pt;
+}
+
+table#register-form p {
+    color: #D32F2F;
+    font-size: 11pt;
+}
+
+table#register-form input[type=text],
+table#register-form input[type=email],
+table#register-form input[type=password] {
+    font-size: 11pt;
+    width: 85%;
+    padding: 0.3em 2.5%;
+    border: 1px solid grey;
+}
+table#register-form textarea {
+    font-size: 10pt;
+    width: 85%;
+    padding: 0.3em 2.5%;
+    border: 1px solid grey;
+}
+
+table#register-form input[type=submit]{
+    border: 0;
+    background-color: #2196F3;
+    border-bottom: 3px solid #1976D2;
+    font-size: 12pt;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    color: white;
+}
+table#register-form input[type=submit]:hover {
+    box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+}
